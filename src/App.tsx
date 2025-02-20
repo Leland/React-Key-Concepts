@@ -17,7 +17,7 @@ function App() {
         Work on coding speed and ergonomics
       </Goal>
       <h2>Chapter 3</h2>
-      <Calculator />
+      <Calculator operand="addition" />
     </>
   );
 }
