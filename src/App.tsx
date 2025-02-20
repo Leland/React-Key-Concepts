@@ -1,6 +1,8 @@
-import { Header } from "./components/Header";
-import { Goal } from "./components/Goal";
 import "./App.css";
+
+import { Calculator } from "./components/Calculator";
+import { Goal } from "./components/Goal";
+import { Header } from "./components/Header";
 
 function App() {
   return (
@@ -14,6 +16,8 @@ function App() {
       <Goal title="Get faster with React">
         Work on coding speed and ergonomics
       </Goal>
+      <h2>Chapter 3</h2>
+      <Calculator />
     </>
   );
 }
