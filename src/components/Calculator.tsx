@@ -1,65 +1,40 @@
-import { useState } from "react";
-
-type Operands = "addition" | "subtraction" | "multiplication" | "division";
+type Operand = "addition" | "subtraction" | "multiplication" | "division";
 
 interface CalculatorProps {
-  operand: Operands;
+  values: [number, number];
+  operand: Operand;
+  onChangeFirst: (e: any) => void;
+  onChangeSecond: (e: any) => void;
+  onSelect: (e: any) => void;
 }
 
-const getSign = (operand: Operands) => {
-  switch (operand) {
-    case "addition":
-      return "+";
-    case "subtraction":
-      return "-";
-    case "division":
-      return "/";
-    case "multiplication":
-      return "*";
-  }
+const operandsToSigns: Record<Operand, string> = {
+  addition: "+",
+  subtraction: "-",
+  division: "/",
+  multiplication: "*",
 };
 
-function Calculator({ operand }: CalculatorProps) {
-  const [firstVal, setFirstVal] = useState(0);
-  const [secondVal, setSecondVal] = useState(0);
-
-  // const result = Number(firstVal) + Number(secondVal);
-
-  const firstHandler = (e: any) => {
-    setFirstVal(e.target.value);
-  };
-
-  const secondHandler = (e: any) => {
-    setSecondVal(e.target.value);
-  };
-
-  let result: number;
-  switch (operand) {
-    case "addition":
-      result = Number(firstVal) + Number(secondVal);
-      break;
-    case "subtraction":
-      result = Number(firstVal) - Number(secondVal);
-      break;
-    case "division":
-      result = Number(firstVal) / Number(secondVal);
-      break;
-    case "multiplication":
-      result = Number(firstVal) * Number(secondVal);
-      break;
-    default:
-      result = 0;
-      break;
-  }
-
-  const sign = getSign(operand);
+function Calculator({
+  values,
+  operand,
+  onChangeFirst,
+  onChangeSecond,
+  onSelect,
+}: CalculatorProps) {
+  const selectedSign = operandsToSigns[operand];
 
   return (
     <form onSubmit={(e) => e.preventDefault}>
-      <input type="number" value={firstVal} onChange={firstHandler} />
-      {sign}
-      <input type="number" value={secondVal} onChange={secondHandler} /> ={" "}
-      {result}
+      <input type="number" value={values[0]} onChange={onChangeFirst} />
+      <select onChange={onSelect}>
+        {Object.entries(operandsToSigns).map(([operand, sign]) => (
+          <option value={operand} selected={sign === selectedSign}>
+            {sign}
+          </option>
+        ))}
+      </select>
+      <input type="number" value={values[1]} onChange={onChangeSecond} />
     </form>
   );
 }
