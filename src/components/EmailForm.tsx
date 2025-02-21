@@ -10,8 +10,10 @@ function EmailForm({
   const [isValid, setIsValid] = useState(true);
 
   const submitHandler = (e: any) => {
-    // e.preventDefault;
+    e.preventDefault();
+    setIsValid(value.includes("@"));
   };
+
   return (
     <form
       style={{ border: "solid 1px black", padding: "20px" }}
@@ -26,8 +28,9 @@ function EmailForm({
           placeholder="example@example.com"
         />
       </label>
+      <button type="submit">Submit</button>
 
-      {isValid && <p>Invalid email address entered!</p>}
+      {!isValid && <p>Invalid email address entered!</p>}
     </form>
   );
 }
