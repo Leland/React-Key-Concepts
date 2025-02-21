@@ -3,12 +3,14 @@ import { useState } from "react";
 import { Calculator } from "./components/Calculator";
 import { Goal } from "./components/Goal";
 import { Header } from "./components/Header";
+import { EmailForm } from "./components/EmailForm";
 
 type Operand = "addition" | "subtraction" | "multiplication" | "division";
 
 function App() {
   const [values, setValues] = useState<[number, number]>([0, 0]);
   const [operand, setOperand] = useState<Operand>("addition");
+  const [email, setEmail] = useState("");
 
   const onChangeFirst = (e: any) => {
     setValues((v) => [e.target.value, v[1]]);
@@ -41,6 +43,10 @@ function App() {
       break;
   }
 
+  const onChangeEmail = (e: any) => {
+    setEmail(e.target.value);
+  };
+
   return (
     <>
       <Header>
@@ -52,17 +58,23 @@ function App() {
       <Goal title="Get faster with React">
         Work on coding speed and ergonomics
       </Goal>
-      <h2>Chapter 4</h2>
-      <Calculator
-        values={values}
-        operand={operand}
-        onChangeFirst={onChangeFirst}
-        onChangeSecond={onChangeSecond}
-        onSelect={onSelectOperand}
-      />
-      <p>
-        <strong>Result:</strong> {result}
-      </p>
+      <section>
+        <h2>Chapter 4</h2>
+        <Calculator
+          values={values}
+          operand={operand}
+          onChangeFirst={onChangeFirst}
+          onChangeSecond={onChangeSecond}
+          onSelect={onSelectOperand}
+        />
+        <p>
+          <strong>Result:</strong> {result}
+        </p>
+      </section>
+      <section>
+        <h2>Chapter 5</h2>
+        <EmailForm value={email} onChange={onChangeEmail} />
+      </section>
     </>
   );
 }
