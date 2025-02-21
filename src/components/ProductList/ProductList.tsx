@@ -1,15 +1,15 @@
 interface ProductProps {
   title: string;
   price: string;
+  id?: number;
 }
 
-export function ProductList({
-  products,
-  onAddProduct,
-}: {
-  products: [ProductProps];
-  onAddProduct: (e: any) => void;
-}) {
+interface ProductListProps {
+  products: ProductProps[];
+  onAddProduct: () => void;
+}
+
+export function ProductList({ products, onAddProduct }: ProductListProps) {
   return (
     <div>
       <button onClick={onAddProduct}>Add Product</button>
@@ -22,7 +22,13 @@ export function ProductList({
 
 function Product({ title, price }: ProductProps) {
   return (
-    <div style={{ backgroundColor: "#333", borderBottom: "solid 1px #111" }}>
+    <div
+      style={{
+        color: "#fff",
+        backgroundColor: "#333",
+        borderBottom: "solid 1px #111",
+      }}
+    >
       <p style={{ margin: 0, padding: 0 }}>
         {title} ({price})
       </p>
