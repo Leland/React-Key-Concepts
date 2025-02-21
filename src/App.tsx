@@ -4,6 +4,7 @@ import { Calculator } from "./components/Calculator";
 import { Goal } from "./components/Goal";
 import { Header } from "./components/Header";
 import { EmailForm } from "./components/EmailForm";
+import { ProductList } from "./components/ProductList/ProductList";
 
 type Operand = "addition" | "subtraction" | "multiplication" | "division";
 
@@ -74,6 +75,7 @@ function App() {
       <section>
         <h2>Chapter 5</h2>
         <EmailForm value={email} onChange={onChangeEmail} />
+        <ProductList onAddProduct={} />
       </section>
     </>
   );
