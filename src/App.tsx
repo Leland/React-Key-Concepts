@@ -6,7 +6,14 @@ import { Chapter5 } from "./components/Chapters/Chapter5";
 
 function App() {
   return (
-    <>
+    <main
+      style={{
+        border: "solid 1px #aaa",
+        padding: "1rem",
+        borderRadius: "0.5rem",
+        backgroundColor: "#fff",
+      }}
+    >
       <section>
         <Header>
           <h1>My Goals For This Book</h1>
@@ -26,7 +33,7 @@ function App() {
         <h2>Chapter 5</h2>
         <Chapter5 />
       </section>
-    </>
+    </main>
   );
 }
 
