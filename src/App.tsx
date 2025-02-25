@@ -10,6 +10,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
       </Routes>
+      {/* For use by portals */}
+      <div id="dialogs"></div>
     </>
   );
 }
