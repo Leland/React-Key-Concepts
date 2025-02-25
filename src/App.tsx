@@ -3,6 +3,7 @@ import { Goal } from "./components/Goal";
 import { Header } from "./components/Header";
 import { Chapter4 } from "./components/Chapters/Chapter4";
 import { Chapter5 } from "./components/Chapters/Chapter5";
+import { Chapter7 } from "./components/Chapters/Chapter7";
 
 function App() {
   return (
@@ -32,6 +33,10 @@ function App() {
       <section>
         <h2>Chapter 5</h2>
         <Chapter5 />
+      </section>
+      <section>
+        <h2>Chapter 7</h2>
+        <Chapter7 />
       </section>
     </main>
   );
