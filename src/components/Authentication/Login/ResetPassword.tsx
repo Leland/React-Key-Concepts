@@ -20,7 +20,7 @@ function ResetPassword({ onFinish }) {
         </dialog>
       </div>
     </>,
-    document.getElementById("overlay"),
+    document.getElementById("dialogs")!,
   );
 }
 
