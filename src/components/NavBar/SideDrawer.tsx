@@ -1,4 +1,5 @@
 import { createPortal } from "react-dom";
+import { NavLink } from "react-router-dom";
 import classes from "./SideDrawer.module.css";
 
 interface Props {
@@ -11,13 +12,10 @@ function Drawer() {
       <nav>
         <ul>
           <li>
-            <a href="/">Dashboard</a>
+            <NavLink to="/">Home (Chapters 1-7)</NavLink>
           </li>
           <li>
-            <a href="/products">All Products</a>
-          </li>
-          <li>
-            <a href="/profile">Your Profile</a>
+            <NavLink to="/Chapter8">Blog (Chapter 8)</NavLink>
           </li>
         </ul>
       </nav>
