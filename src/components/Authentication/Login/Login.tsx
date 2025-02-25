@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { lazy, useState } from "react";
 
-import ResetPassword from "./ResetPassword";
+const ResetPassword = lazy(() => import("./ResetPassword"));
 
 function Login() {
   const [isResetting, setIsResetting] = useState();

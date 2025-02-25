@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { lazy, useState } from "react";
 
 import Login from "./Login/Login";
-import Signup from "./Signup/Signup";
 import classes from "./Authentication.module.css";
+
+const Signup = lazy(() => import("./Signup/Signup"));
 
 function Authentication() {
   const [mode, setMode] = useState("login");
