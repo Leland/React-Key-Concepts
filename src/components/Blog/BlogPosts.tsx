@@ -3,7 +3,7 @@ import { Post } from "./BlogPosts.types";
 
 export function BlogPosts({ posts }: { posts: Post[] }) {
   return (
-    <ul className={classes.list}>
+    <ul className={classes.posts}>
       {posts.map((post) => (
         <li key={post.id}>{post.title}</li>
       ))}
