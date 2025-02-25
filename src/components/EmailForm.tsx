@@ -9,15 +9,13 @@ function EmailForm({
 }) {
   const [isValid, setIsValid] = useState(true);
 
-  const submitHandler = (e: any) => {
-    e.preventDefault();
-    setIsValid(value.includes("@"));
-  };
-
   return (
     <form
       style={{ border: "solid 1px black", padding: "20px" }}
-      onSubmit={submitHandler}
+      onSubmit={(e) => {
+        e.preventDefault();
+        setIsValid(value.includes("@"));
+      }}
     >
       <h2>Your email</h2>
       <label>
