@@ -1,8 +1,9 @@
-import { Routes, Route } from "react-router-dom";
-import { Home } from "./pages/Home.tsx";
-import { Chapter8 } from "./pages/Chapter8.tsx";
-import { NavBar } from "./components/NavBar/NavBar.tsx";
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
+import { NavBar } from "./components/NavBar/NavBar.tsx";
+import { Chapter8 } from "./pages/Chapter8.tsx";
+import { Chapter9 } from "./pages/Chapter9.tsx";
+import { Home } from "./pages/Home.tsx";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/Chapter8" element={<Chapter8 />} />
+        <Route path="/Chapter9" element={<Chapter9 />} />
       </Routes>
       {/* For use by portals */}
       <div id="dialogs"></div>
