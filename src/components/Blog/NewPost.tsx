@@ -10,7 +10,11 @@ export function NewPost() {
 
   function submitHandler(event) {
     event.preventDefault();
-    // Todo: Handle the creation of new posts and send new post data to https://jsonplaceholder.typicode.com/posts (via a POST) request
+    const config = {
+      method: "POST",
+      body: JSON.stringify({ title: enteredTitle }),
+    };
+    fetch("https://jsonplaceholder.typicode.com/posts", config);
   }
 
   return (
