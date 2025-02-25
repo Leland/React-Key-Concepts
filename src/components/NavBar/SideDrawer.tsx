@@ -1,9 +1,9 @@
 import classes from "./SideDrawer.module.css";
 
-export function SideDrawer() {
+export function SideDrawer({ onClose }: { onClose: () => void }) {
   return (
     <>
-      <div className={classes.backdrop} />
+      <div className={classes.backdrop} onClick={onClose} />
       <aside className={classes.drawer}>
         <nav>
           <ul>
