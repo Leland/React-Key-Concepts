@@ -26,10 +26,12 @@ export function Chapter10() {
   return (
     <>
       <main>
+        <h2>10.1 Cart Context</h2>
         <CartContext.Provider value={cartCtxValue}>
           <MainHeader />
           <Events />
         </CartContext.Provider>
+        <h2>10.2 Reducer Form</h2>
         <ReducerForm />
       </main>
     </>
