@@ -1,25 +1,18 @@
+import { useContext } from "react";
 import classes from "./EventItem.module.css";
 import { StoreItem } from "./types";
+import { CartContext } from "../../stores/CartContext";
 
-interface Props {
-  event: StoreItem;
-  isInCart: boolean;
-  onAddToCart: () => void;
-  onRemoveFromCart: () => void;
-}
-
-export function EventItem({
-  event,
-  isInCart,
-  onAddToCart,
-  onRemoveFromCart,
-}: Props) {
+export function EventItem({ event }: { event: StoreItem }) {
+  const cartCtx = useContext(CartContext);
   let buttonCaption = "Add to Cart";
-  let buttonAction = onAddToCart;
+  let buttonAction = cartCtx.addItemToCart(event);
+
+  const isInCart = cartCtx.cartItems.some((item) => item.id === event.id);
 
   if (isInCart) {
     buttonCaption = "Remove from Cart";
-    buttonAction = onRemoveFromCart;
+    buttonAction = cartCtx.removeItemFromCart(event.id);
   }
 
   return (
@@ -30,7 +23,7 @@ export function EventItem({
         <p className={classes.price}>${event.price}</p>
         <p>{event.description}</p>
         <div className={classes.actions}>
-          <button onClick={buttonAction}>{buttonCaption}</button>
+          <button onClick={() => buttonAction}>{buttonCaption}</button>
         </div>
       </div>
     </li>

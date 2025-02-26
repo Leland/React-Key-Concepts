@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Events } from "../components/Events/Events";
 import { MainHeader } from "../components/Events/MainHeader/MainHeader";
 import { StoreItem } from "../components/Events/types";
+import { CartContext } from "../stores/CartContext";
 
 export function Chapter10() {
   const [cartItems, setCartItems] = useState<StoreItem[]>([]);
@@ -15,16 +16,20 @@ export function Chapter10() {
     setCartItems((prevItems) => prevItems.filter((item) => item.id !== itemId));
   }
 
+  const cartCtxValue = {
+    cartItems,
+    addItemToCart: addItemHandler,
+    removeItemFromCart: removeItemHandler,
+  };
+
   return (
     <>
-      <MainHeader cartItems={cartItems} />
-      <main>
-        <Events
-          onAddItemToCart={addItemHandler}
-          onRemoveItemFromCart={removeItemHandler}
-          cartItems={cartItems}
-        />
-      </main>
+      <CartContext.Provider value={cartCtxValue}>
+        <MainHeader />
+        <main>
+          <Events />
+        </main>
+      </CartContext.Provider>
     </>
   );
 }
