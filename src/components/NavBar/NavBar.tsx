@@ -10,7 +10,7 @@ export function NavBar() {
   return (
     <>
       <header className={classes.header}>
-        <h1>Demo App</h1>
+        <h1>React Key Concepts</h1>
         <button
           className={classes.btn}
           onClick={() => {
