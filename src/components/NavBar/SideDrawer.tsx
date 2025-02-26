@@ -18,7 +18,10 @@ function Drawer() {
             <NavLink to="/Chapter8">Blog (Chapter 8)</NavLink>
           </li>
           <li>
-            <NavLink to="/Chapter9">Authentication (Chapter 9)</NavLink>
+            <NavLink to="/Chapter9">Authentmication (Chapter 9)</NavLink>
+          </li>
+          <li>
+            <NavLink to="/Chapter10">State (Chapter 10)</NavLink>
           </li>
         </ul>
       </nav>
