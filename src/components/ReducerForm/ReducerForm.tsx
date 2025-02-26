@@ -1,7 +1,7 @@
-import { useReducer, useState } from "react";
+import { useReducer } from "react";
 import classes from "./ReducerForm.module.css";
 
-const initialState = { email: "", password: "", valid: true };
+const initialState = { email: "", password: "" };
 
 type ACTIONTYPE =
   | { type: "changedEmail"; nextEmail: string }
@@ -17,9 +17,6 @@ function reducer(state: typeof initialState, action: ACTIONTYPE) {
       throw new Error();
   }
 }
-
-// const isEmailValid = (email: string) => email.trim().length > 7;
-// const isPasswordValid = (password: string) => password.trim().length > 7;
 
 export function ReducerForm() {
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -37,14 +34,17 @@ export function ReducerForm() {
   function submitFormHandler(event: any) {
     event.preventDefault();
 
-    // if (!formIsValid) {
-    //   alert("Invalid form inputs!");
-    //   return;
-    // }
+    if (!formIsValid) {
+      alert("Invalid form inputs!");
+      return;
+    }
 
-    // console.log("Good job!");
-    // console.log(state.email, state.password);
+    console.log("Good job!");
+    console.log(state.email, state.password);
   }
+
+  const formIsValid =
+    state.email.trim().length > 7 && state.password.trim().length > 7;
 
   return (
     <form className={classes.form} onSubmit={submitFormHandler}>
