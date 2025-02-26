@@ -1,8 +1,19 @@
 import dummyEvents from "../../assets/dummy-events";
-import EventItem from "./EventItem";
+import { EventItem } from "./EventItem";
 import classes from "./Events.module.css";
+import { StoreItem } from "./types";
 
-function Events({ onAddItemToCart, onRemoveItemFromCart, cartItems }) {
+interface Props {
+  onAddItemToCart: (item: StoreItem) => void;
+  onRemoveItemFromCart: (itemID: StoreItem["id"]) => void;
+  cartItems: StoreItem[];
+}
+
+export function Events({
+  onAddItemToCart,
+  onRemoveItemFromCart,
+  cartItems,
+}: Props) {
   return (
     <ul className={classes.events}>
       {dummyEvents.map((event) => (
@@ -17,5 +28,3 @@ function Events({ onAddItemToCart, onRemoveItemFromCart, cartItems }) {
     </ul>
   );
 }
-
-export default Events;

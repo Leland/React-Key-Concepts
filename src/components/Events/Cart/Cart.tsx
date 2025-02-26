@@ -1,8 +1,14 @@
 import ReactDOM from "react-dom";
 
 import classes from "./Cart.module.css";
+import { StoreItem } from "../types";
 
-function Cart({ onClose, items }) {
+interface Props {
+  onClose: () => void;
+  items: StoreItem[];
+}
+
+export function Cart({ onClose, items }: Props) {
   const total = items.reduce((prevVal, item) => prevVal + item.price, 0);
 
   return ReactDOM.createPortal(
@@ -24,8 +30,6 @@ function Cart({ onClose, items }) {
         </div>
       </aside>
     </>,
-    document.getElementById("dialogs"),
+    document.getElementById("dialogs")!,
   );
 }
-
-export default Cart;

@@ -1,11 +1,24 @@
-import classes from './EventItem.module.css';
+import classes from "./EventItem.module.css";
+import { StoreItem } from "./types";
 
-function EventItem({ event, isInCart, onAddToCart, onRemoveFromCart }) {
-  let buttonCaption = 'Add to Cart';
+interface Props {
+  event: StoreItem;
+  isInCart: boolean;
+  onAddToCart: () => void;
+  onRemoveFromCart: () => void;
+}
+
+export function EventItem({
+  event,
+  isInCart,
+  onAddToCart,
+  onRemoveFromCart,
+}: Props) {
+  let buttonCaption = "Add to Cart";
   let buttonAction = onAddToCart;
 
   if (isInCart) {
-    buttonCaption = 'Remove from Cart';
+    buttonCaption = "Remove from Cart";
     buttonAction = onRemoveFromCart;
   }
 
@@ -23,5 +36,3 @@ function EventItem({ event, isInCart, onAddToCart, onRemoveFromCart }) {
     </li>
   );
 }
-
-export default EventItem;
