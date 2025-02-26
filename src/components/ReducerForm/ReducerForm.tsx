@@ -4,14 +4,14 @@ import classes from "./ReducerForm.module.css";
 const initialState = { email: "", password: "" };
 
 type ACTIONTYPE =
-  | { type: "changedEmail"; nextEmail: string }
-  | { type: "changedPassword"; nextPassword: string };
+  | { type: "CHANGE_EMAIL"; nextEmail: string }
+  | { type: "CHANGE_PASSWORD"; nextPassword: string };
 
 function reducer(state: typeof initialState, action: ACTIONTYPE) {
   switch (action.type) {
-    case "changedEmail":
+    case "CHANGE_EMAIL":
       return { ...state, email: action.nextEmail };
-    case "changedPassword":
+    case "CHANGE_PASSWORD":
       return { ...state, password: action.nextPassword };
     default:
       throw new Error();
@@ -23,12 +23,12 @@ export function ReducerForm() {
 
   function changeEmailHandler(event: any) {
     const value = event.target.value;
-    dispatch({ type: "changedEmail", nextEmail: value });
+    dispatch({ type: "CHANGE_EMAIL", nextEmail: value });
   }
 
   function changePasswordHandler(event: any) {
     const value = event.target.value;
-    dispatch({ type: "changedPassword", nextPassword: value });
+    dispatch({ type: "CHANGE_PASSWORD", nextPassword: value });
   }
 
   function submitFormHandler(event: any) {
