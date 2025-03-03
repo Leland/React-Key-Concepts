@@ -23,6 +23,9 @@ function Drawer() {
           <li>
             <NavLink to="/Chapter10">State (Chapter 10)</NavLink>
           </li>
+          <li>
+            <NavLink to="/Chapter11">Hooks (Chapter 11)</NavLink>
+          </li>
         </ul>
       </nav>
     </aside>

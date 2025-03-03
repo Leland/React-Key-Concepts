@@ -5,6 +5,7 @@ import { Chapter8 } from "./pages/Chapter8.tsx";
 import { Chapter9 } from "./pages/Chapter9.tsx";
 import { Home } from "./pages/Home.tsx";
 import { Chapter10 } from "./pages/Chapter10.tsx";
+import { Chapter11 } from "./pages/Chapter11.tsx";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/Chapter8" element={<Chapter8 />} />
         <Route path="/Chapter9" element={<Chapter9 />} />
         <Route path="/Chapter10" element={<Chapter10 />} />
+        <Route path="/Chapter11" element={<Chapter11 />} />
       </Routes>
       {/* For use by portals */}
       <div id="dialogs"></div>
